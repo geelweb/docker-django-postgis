@@ -34,9 +34,8 @@ Checkout the `step1` branch
 
     $ git checkout step1
 
-The Postgres image is located in the `postgres` repository. Check the README
-file inside the repository to detailled instructions on how to build and run the
-container.
+The Postgres image is located in the `postgres` repository. Read the [Postgres README](postgres/README.md)
+for detailled instructions on how to build and run the container.
 
 ### Update the Postgres image
 

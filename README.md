@@ -30,6 +30,21 @@ branch you can checkout (eg `git checkout step1`)
 
 ### Create a basic Postgres image
 
+Checkout the `step1` branch
+
+    $ git checkout step1
+
 The Postgres image is located in the `postgres` repository. Check the README
 file inside the repository to detailled instructions on how to build and run the
 container.
+
+### Update the Postgres image
+
+Checkout the `step2` branch
+
+    $ git checkout step2
+
+This step update the Postgres image allowing the definition of the database
+name. You can also create a user and a password. See the README file in the
+`postgres` directory for details on the environment variables.
+

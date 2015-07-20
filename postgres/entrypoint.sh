@@ -12,8 +12,25 @@ if [ "$1" = 'postgres' ]; then
         # postgresql.conf
         sed -ri "s/^#(listen_addresses\s*=\s*)\S+/\1'*'/" "$PGDATA"/postgresql.conf
 
+        # Defines default user/password and db
+        : ${PG_USER:=docker}
+        : ${PG_PASSWORD:=docker}
+        : ${PG_DB:=$PG_USER}
+
+        # Create the user
+        #gosu postgres psql -U postgres -c "CREATE USER '$PG_USER' WITH SUPERUSER PASSWORD '$PG_PASSWORD'"
+        gosu postgres postgres --single -jE << EOSQL
+CREATE USER "$PG_USER" WITH SUPERUSER PASSWORD '$PG_PASSWORD';
+EOSQL
+
+        # Create the database
+        #gosu postgres createdb -U $PG_USER $PG_DB
+        gosu postgres postgres --single -jE << EOSQL
+CREATE DATABASE "$PG_DB";
+EOSQL
+
         # accept all connections without password
-        echo "host all all 0.0.0.0/0 trust"  >> "$PGDATA"/pg_hba.conf
+        echo "host all all 0.0.0.0/0 md5"  >> "$PGDATA"/pg_hba.conf
     fi
 
     exec gosu postgres "$@"

@@ -14,6 +14,15 @@ for a Postgres image.
 
     $ docker run --name postgres_server -d my_postgres
 
+By default a database named `docker` will be created. The default user password
+is `docker:docker`. You can change thoses values with the environment variables
+
+ * PG_USER: (default docker)
+ * PG_PASSWORD: (default docker)
+ * PG_DB: (default same as PG_USER)
+
+    $ docker run --name postgres_server -e PG_USER=gluchet PG_PASSWORD=secret -d my_postgres
+
 ## Connect to the container with `psql`
 
 Gets the container IP:
@@ -42,4 +51,4 @@ So you can simply define an alias to the linked container with
 `$SERVER1_PORT_5432_TCP_ADDR` and `$SERVER1_PORT_5432_TCP_PORT`
 
 
-    $ docker run -it --link postgres_server:server1 --rm my_postgres sh -c 'exec psql -h "$SERVER1_PORT_5432_TCP_ADDR"  -p "$SERVER1_PORT_5432_TCP_PORT" -U postgres'
+    $ docker run -it --link postgres_server:server1 --rm my_postgres sh -c 'exec psql -h "$SERVER1_PORT_5432_TCP_ADDR"  -p "$SERVER1_PORT_5432_TCP_PORT" -U docker docker'

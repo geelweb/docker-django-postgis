@@ -21,9 +21,15 @@ branch you can checkout (eg `git checkout step1`)
 
 ## The steps
 
- 1. Create a basic Postgres container (branch step1)
+ 1. Create a basic Postgres image (branch step1)
  2. Enforce security to the Postgres container adding a user/password. Create a
  database (step2)
- 3. Create a PostGIS container (step3)
+ 3. Create a PostGIS image (step3)
  4. Create a Django App (step4)
  5. Use fig (step5)
+
+### Create a basic Postgres image
+
+The Postgres image is located in the `postgres` repository. Check the README
+file inside the repository to detailled instructions on how to build and run the
+container.

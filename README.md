@@ -45,6 +45,6 @@ Checkout the `step2` branch
     $ git checkout step2
 
 This step update the Postgres image allowing the definition of the database
-name. You can also create a user and a password. See the README file in the
-`postgres` directory for details on the environment variables.
+name. You can also create a user and a password. See the [Postgres README](postgres/README.md)
+for details on how to build and run the container, and to see how to defines the environment variables.
 

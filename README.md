@@ -30,5 +30,5 @@ branch you can checkout (eg `git checkout step1`)
 
 ### Create a basic Postgres image
 
-The Postgres image is located in the `postgres` repository. Read the [Postgres README](postgres/README.md]
+The Postgres image is located in the `postgres` repository. Read the [Postgres README](postgres/README.md)
 for detailled instructions on how to build and run the container.

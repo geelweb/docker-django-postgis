@@ -29,7 +29,7 @@ EOSQL
 CREATE DATABASE "$PG_DB";
 EOSQL
 
-        # accept all connections without password
+        # accept all connections with password
         echo "host all all 0.0.0.0/0 md5"  >> "$PGDATA"/pg_hba.conf
     fi
 

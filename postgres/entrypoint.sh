@@ -31,6 +31,13 @@ EOSQL
 
         # accept all connections with password
         echo "host all all 0.0.0.0/0 md5"  >> "$PGDATA"/pg_hba.conf
+
+        # Execute scripts added by child images
+        if [ -d /docker-entrypoint-initdb.d ]; then
+            for f in /docker-entrypoint-initdb.d/*.sh; do
+                [ -f "$f" ] && . "$f"
+            done
+        fi
     fi
 
     exec gosu postgres "$@"

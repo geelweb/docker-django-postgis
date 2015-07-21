@@ -47,3 +47,15 @@ This step update the Postgres image allowing the definition of the database
 name. You can also create a user and a password. See the [Postgres README](postgres/README.md)
 for details on how to build and run the container, and to see how to defines the environment variables.
 
+### Create a PostGIS image
+
+Checkout the `step3` branch
+
+    $ git checkout step3
+
+In this step, we update the Postgres image to allow the execution of scripts
+added by child containers, and we create a PostGIS image based on our Postgres
+image.
+
+The detailled instruction about the PostGIS image are in the [PostGIS
+README](postgis/README.md).

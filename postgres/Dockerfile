@@ -18,6 +18,10 @@ RUN apt-get install -y curl
 RUN curl -o /usr/local/bin/gosu -sSL "https://github.com/tianon/gosu/releases/download/1.4/gosu-$(dpkg --print-architecture)"
 RUN chmod +x /usr/local/bin/gosu
 
+# This directory can be used by child images to store scripts to execute after
+# the database creation
+RUN mkdir /docker-entrypoint-initdb.d
+
 # Update the path
 ENV PATH /usr/lib/postgresql/9.4/bin:$PATH
 

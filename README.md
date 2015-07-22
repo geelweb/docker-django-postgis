@@ -26,7 +26,6 @@ branch you can checkout (eg `git checkout step1`)
  database (step2)
  3. Create a PostGIS image (step3)
  4. Create a Django App (step4)
- 5. Use fig (step5)
 
 ### Create a basic Postgres image
 
@@ -59,3 +58,20 @@ image.
 
 The detailled instruction about the PostGIS image are in the [PostGIS
 README](postgis/README.md).
+
+### The Django App
+
+I use the [geodjango
+tutorial](https://docs.djangoproject.com/en/1.8/ref/contrib/gis/tutorial/).
+
+I use [Compose](https://docs.docker.com/compose/django/) to set-up and run the app.
+
+In addition to the steps of the geodjango tutorial, I created the 3 following
+files:
+
+ - [Dockerfile](geodjango/Dockerfile)
+ - [requirements.txt](geodjango/requirements.txt)
+ - [docker-compose.yml](geodjango/docker-compose.yml)
+
+Detailed instructions to set-up and run the geodjango app are in the [geodjango
+README](geodjango/README.md)

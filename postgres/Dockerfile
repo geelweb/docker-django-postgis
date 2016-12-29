@@ -31,6 +31,7 @@ VOLUME /var/lib/postgresql/data
 
 # defines the entrypoint script
 COPY entrypoint.sh /
+RUN chmod 755 /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 # expose the postgresql default port
